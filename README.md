@@ -15,6 +15,7 @@ type Context interface {
 ```
 
 **Listening for the cancellation event**
+
 The Context type provides a Done() method, which returns a channel that receives an empty *struct{}* type everytime the context receives a cancellation event. Listening for a cancellation event is as easy as waiting for *<- ctx.Done()*.
 
 For example, lets consider an HTTP server that takes two seconds to process an event. If the request gets cancelled before that, we want to return immediately
